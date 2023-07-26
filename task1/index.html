@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,700&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div class="container placeholder" id="main">
+            <div class="todo-list visit__list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Created</th>
+                            <th>Category</th>
+                            <th>Content</th>
+                            <th>Dates</th>
+                            <th>Edit</th>
+                            <th>Archive</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-rows">
+                        <!-- Здесь можно добавить данные о задачах в виде дополнительных <tr> и <td> -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="open-modal-btn" id="btn-create">Create Notes</button>
+
+
+            <!-- Модальное окно -->
+            <div class="modal-wrapper" id="modal">
+                <div class="modal" >
+                    <div class="modal-content">
+                        <h2>Форма для заполнения</h2>
+                        <form>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" required>
+                    
+                            <label for="сreated">Created:</label>
+                            <input type="date" id="сreated" readonly>
+
+                            <label for="category">Category:</label>
+                            <input type="text" id="category" required>
+                    
+                            <label for="content">Content:</label>
+                            <textarea id="content" rows="4" required></textarea>
+
+                            <label for="dates">Dates:</label>
+                            <input type="date" id="dates" >
+                    
+                            <button type="submit">Отправить</button>
+                        </form>
+                        <button class="close-modal-btn">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="wrapper-placeholder">
+                <p class="placeholder__text">Тут буде історія візитів.</p>
+                <img class="placeholder__img" src="images/placeholder.png" alt="placeholder">
+            </div> -->
+            <!-- <ul class="visit__list">
+                <template class="visit">
+                    <li class="visit__menu text">
+                        <svg class="icon-done" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                            <path d="M18.9 35.7 7.7 24.5l2.15-2.15 9.05 9.05 19.2-19.2 2.15 2.15Z" />
+                        </svg>
+                        <div class="visit__item">
+                            <div>
+                                <h3 class="visit__title fullName"></h3>
+                                <p class="visit__text-doctor doctor"></p>
+                                <button class="visit-btn">Показати більше</button>
+                            </div>
+                            <div class="wrapper-icon">
+                                <svg id="btn-close" xmlns="http://www.w3.org/2000/svg" height="28"
+                                    viewBox="0 96 960 960" width="28">
+                                    <path
+                                        d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+                                </svg>
+                                <svg id="btn-edit" xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960"
+                                    width="28">
+                                    <path
+                                        d="M180 876h44l443-443-44-44-443 443v44Zm614-486L666 262l42-42q17-17 42-17t42 17l44 44q17 17 17 42t-17 42l-42 42Zm-42 42L248 936H120V808l504-504 128 128Zm-107-21-22-22 44 44-22-22Z" />
+                                </svg>
+                            </div>
+                            <img class="visit__img" alt="dentist">
+                        </div>
+                        <div class="text-wrapper" hidden>
+                        </div>
+                    </li>
+                </template>
+            </ul> -->
+
+        </div>
+    </main>
+    <script src="./js/index.js" type="module"></script>
+</body>
+
+</html>
