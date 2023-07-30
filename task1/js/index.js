@@ -1,44 +1,40 @@
-import { btnCreateNotes, btnCloseModal, table } from "./constants.js";
-import {  notes } from "./notes.js";
-import { getCategory } from './categories.js'
+import {
+  btnCreateNotes,
+  btnCloseModal,
+  table,
+  categoryList,
+  form,
+  tabs,
+} from "./constants.js";
+import { notes, updateNote} from "./notes.js";
+import { categories } from "./categories.js";
+import { closeModal, openModal} from "./modal.js";
+import { renderCategoriesList } from "./renderCategoriesList.js";
+import { renderData } from "./renderTable.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+tabs.addEventListener("click", (e) => {
+  const btnTarget = e.target.closest("button");
+
+  if (btnTarget.innerText==="Archive") {
+    btnTarget.classList.toggle("active");
+    table.innerHTML="";
+    table.append(...renderData(notes, false));
+    // const type = iconTarget.classList.contains("fa-eye-slash")
+    //   ? "text"
+    //   : "password";
+    // iconTarget.previousElementSibling.setAttribute("type", type);
+  }else{
+    table.innerHTML="";
+    table.append(...renderData(notes));
+  }
+});
   btnCreateNotes.addEventListener("click", openModal);
   btnCloseModal.addEventListener("click", closeModal);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    updateNote(e.target);
+  });
   table.append(...renderData(notes));
+  categoryList.append(renderCategoriesList(categories));
 });
-
-const renderRow = ({ name, created, category, content, dates }, id) => {
-  const tr = document.createElement("tr");
-  const {id:idCategory, title, icon} = getCategory(category);
-  tr.id = id;
-  tr.innerHTML = `<td id="name"> <img src=${icon} alt=${title} class="item-icon" /> ${name}</td>
-                  <td id="created">${created}</td>
-                  <td id="category" data-category="${idCategory}">${title}</td>
-                  <td id="content">${content}</td>
-                  <td id="dates">${dates}</td>
-                  <td id="edit">Edit</td>
-                  <td id="archive">Archive</td>
-                  <td id="delete">Delete</td>`;
-  return tr;
-};
-
-
-const renderData = (notes) => {
-  const arrayRows = notes?.map((item, index) => renderRow(item, index));
-  return arrayRows;
-};
-
-// Функция для открытия модального окна
-function openModal() {
-  const modal = document.getElementById("modal");
-  modal.style.display = "block";
-  document.body.style.overflow = "hidden";
-}
-
-// Функция для закрытия модального окна
-function closeModal() {
-  const modal = document.getElementById("modal");
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-}

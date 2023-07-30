@@ -17,6 +17,10 @@
 <body>
     <main>
         <div class="container placeholder" id="main">
+           <div class="tabs">
+            <button class="btn-all-notes" id="">All Notes</button>
+            <button class="btn-archive" id="">Archive</button>
+           </div>
             <div class="todo-list visit__list">
                 <table>
                     <thead>
@@ -45,27 +49,26 @@
                     <div class="modal-content">
                         <div class="modal-title">
                             <h2 >Create Note</h2>
-                            <p class="close-modal-btn">X</p>
+                            <!-- <p class="close-modal-btn">X</p> -->
                         </div>
-                        <form>
+                        <form id="modal-form" >
                             <div class="label-group">
                                 <label for="name">Title</label>
-                                <input type="text" id="name" name="name" >
+                                <input type="text" id="name" name="name" required>
                             </div>
 
-                            <div class="label-group">
+                            <div class="label-group" id="category-list">
                                 <label for="category">Category:</label>
-                                <input type="text" id="category" name="category" >
                             </div>
                     
                             <div class="label-group">
                                 <label for="content">Content:</label>
-                                <textarea id="content" rows="4" name="content" ></textarea>
+                                <textarea id="content" rows="4" name="content" required></textarea>
                             </div>
                     
                             <div class="btn-group">
                                 <button type="submit">Save</button>
-                                <button class="close-modal-btn">Close</button>
+                                <button class="close-modal-btn" type="button">Close</button>
                             </div>
                         </form>
                        

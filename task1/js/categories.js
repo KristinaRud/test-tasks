@@ -5,6 +5,6 @@ export const categories = [
 ];
 
 export function getCategory(category) {
-    const index = categories.find(c => c.id === category);
+    const index = categories.find(c => c.id === +category);
     return index;
 };
