@@ -2,6 +2,7 @@ import { table, form } from "./constants.js";
 import { closeModal, openModal, clearForm } from "./modal.js";
 import { extractDates } from "./helpers.js";
 import { renderRow } from "./renderTable.js";
+import { categories } from "./categories.js";
 
 export const notes = [
   {
@@ -101,7 +102,8 @@ export function updateNote(e) {
     const index = notes.findIndex((el) => el.id === +id);
     const indexTr = allTr.findIndex((el) => el.id === id);
     if (index !== -1 && indexTr !== -1) {
-      notes[index].isActive = e.closest("td").innerText === "archive" ? false : true;
+      notes[index].isActive =
+        e.closest("td").innerText === "archive" ? false : true;
       e.parentElement.remove();
     }
   } else {
@@ -115,7 +117,11 @@ export function updateNote(e) {
         notes[index].category = e.category.value;
         notes[index].content = e.content.value;
         notes[index].dates = extractDates(e.content.value);
-        const updateTr = renderRow(notes[index], notes[index].id, notes[index].isActive);
+        const updateTr = renderRow(
+          notes[index],
+          notes[index].id,
+          notes[index].isActive
+        );
         allTr[indexTr] = updateTr;
         table.innerHTML = "";
         table.append(...allTr);
@@ -124,8 +130,7 @@ export function updateNote(e) {
     clearForm(e);
     closeModal();
   }
-
-  
+  countCategory();
 }
 
 export function deleteNote(e) {
@@ -134,4 +139,22 @@ export function deleteNote(e) {
     notes.splice(index, 1);
     e.parentElement.remove();
   }
+}
+
+export function countCategory() {
+  const arr = [];
+  categories.forEach((n) => {
+    let active = 0;
+    let archived = 0;
+    notes.forEach((i) => {
+      if (i.category === n.id) {
+        n = i.isActive
+          ? { ...n, active: ++active, archived: archived }
+          : { ...n, active: active, archived: ++archived };
+      }
+    });
+    arr.push(n);
+  });
+
+  console.log(arr);
 }

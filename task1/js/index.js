@@ -38,3 +38,5 @@ tabs.addEventListener("click", (e) => {
   table.append(...renderData(notes));
   categoryList.append(renderCategoriesList(categories));
 });
+
+

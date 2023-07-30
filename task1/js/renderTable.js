@@ -1,4 +1,4 @@
-import { editNote, deleteNote } from "./notes.js";
+import { editNote, deleteNote, countCategory } from "./notes.js";
 import { getCategory } from "./categories.js";
 import { formatDate } from "./helpers.js";
 import {toggleArchiveNote} from "./archieve.js";
@@ -38,5 +38,6 @@ export const renderRow = ({ name, created, category, content, dates, isActive },
 
 export const renderData = (list, isAllNotes=true) => {
   const arrayRows = list?.map((item, index) => renderRow(item, index, isAllNotes));
+  countCategory();
   return arrayRows;
 };
