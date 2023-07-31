@@ -76,12 +76,11 @@ td:last-child .delete-icon {
   color: #ffffff;
 }
 
-.btn-all-notes:active,
-.btn-archive:active {
+.btn-all-notes {
   background-color: #007bff;
 }
 
-.btn-all-notes,.btn-archive {
+.btn-archive {
   background-color: #6c757d;
 }
 

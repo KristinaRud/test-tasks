@@ -16,11 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 tabs.addEventListener("click", (e) => {
   const btnTarget = e.target.closest("button");
   if (btnTarget.innerText==="Archive") {
-    btnTarget.classList.toggle("active-btn");
+    btnTarget.classList.toggle("active");
     table.innerHTML="";
     table.append(...renderData(notes, false));
   }else{
-    btnTarget.classList.toggle("active-btn");
     table.innerHTML="";
     table.append(...renderData(notes));
   }
