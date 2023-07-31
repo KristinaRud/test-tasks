@@ -1,6 +1,6 @@
 import { modal, form } from "./constants.js";
 
-export function openModal(isEdit = false) {
+export function openModal() {
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
 }
