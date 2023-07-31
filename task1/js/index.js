@@ -6,25 +6,21 @@ import {
   form,
   tabs,
 } from "./constants.js";
-import { notes, updateNote} from "./notes.js";
-import { categories } from "./categories.js";
+import { notes} from "./notes.js";
+import { categories} from "./categories.js";
 import { closeModal, openModal} from "./modal.js";
 import { renderCategoriesList } from "./renderCategoriesList.js";
-import { renderData } from "./renderTable.js";
+import { renderData, updateNote, updateTotalTable } from "./renderTable.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 tabs.addEventListener("click", (e) => {
   const btnTarget = e.target.closest("button");
-
   if (btnTarget.innerText==="Archive") {
-    btnTarget.classList.toggle("active");
+    btnTarget.classList.toggle("active-btn");
     table.innerHTML="";
     table.append(...renderData(notes, false));
-    // const type = iconTarget.classList.contains("fa-eye-slash")
-    //   ? "text"
-    //   : "password";
-    // iconTarget.previousElementSibling.setAttribute("type", type);
   }else{
+    btnTarget.classList.toggle("active-btn");
     table.innerHTML="";
     table.append(...renderData(notes));
   }
@@ -37,6 +33,8 @@ tabs.addEventListener("click", (e) => {
   });
   table.append(...renderData(notes));
   categoryList.append(renderCategoriesList(categories));
+  updateTotalTable();
+  form.reset();
 });
 
 

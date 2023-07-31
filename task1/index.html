@@ -18,8 +18,8 @@
     <main>
         <div class="container placeholder" id="main">
            <div class="tabs">
-            <button class="btn-all-notes" id="">All Notes</button>
-            <button class="btn-archive" id="">Archive</button>
+            <button class="btn-all-notes active-btn">All Notes</button>
+            <button class="btn-archive">Archive</button>
            </div>
             <div class="todo-list visit__list">
                 <table>
@@ -36,7 +36,6 @@
                         </tr>
                     </thead>
                     <tbody id="table-rows">
-                        <!-- Здесь можно добавить данные о задачах в виде дополнительных <tr> и <td> -->
                     </tbody>
                 </table>
             </div>
@@ -49,7 +48,6 @@
                     <div class="modal-content">
                         <div class="modal-title">
                             <h2 >Create Note</h2>
-                            <!-- <p class="close-modal-btn">X</p> -->
                         </div>
                         <form id="modal-form" >
                             <div class="label-group">
@@ -75,24 +73,20 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="container placeholder" id="main">
-             <div class="count-list visit__list">
-                 <table>
-                     <thead>
-                         <tr>
-                             <th>Category</th>
-                             <th>Active</th>
-                             <th>Archive</th>
-                         </tr>
-                     </thead>
-                     <tbody id="table-rows">
-                         <!-- Здесь можно добавить данные о задачах в виде дополнительных <tr> и <td> -->
-                     </tbody>
-                 </table>
-             </div>
-         </div>
+            <div class="count-list visit__list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Active</th>
+                            <th>Archive</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-total">
+                    </tbody>
+                </table>
+            </div>
+        </div>       
     </main>
     <script src="./js/index.js" type="module"></script>
 </body>

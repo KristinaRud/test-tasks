@@ -8,6 +8,7 @@ export function openModal(isEdit = false) {
 export function closeModal() {
   modal.style.display = "none";
   document.body.style.overflow = "auto";
+  form.reset();
 }
 
 export function clearForm(e) {
