@@ -1,6 +1,6 @@
 import { editNote, deleteNote, createNote, notes } from "./notes.js";
 import { getCategory, countCategory } from "./categories.js";
-import { formatDate } from "./helpers.js";
+import { formatDate, extractDates } from "./helpers.js";
 import { toggleArchiveNote } from "./archieve.js";
 import { closeModal, clearForm } from "./modal.js";
 import { tableTotal, table, form } from "./constants.js";
